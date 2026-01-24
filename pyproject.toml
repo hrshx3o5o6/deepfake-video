@@ -1,0 +1,20 @@
+[project]
+name = "yantra-ml-hack"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "certifi==2025.11.12",
+    "facenet-pytorch>=2.5.3",
+    "numpy>=2.4.1",
+    "pandas>=3.0.0",
+    "pillow>=12.1.0",
+    "setuptools>=80.10.1",
+    "torch>=2.10.0",
+    "torchvision>=0.25.0",
+    "tqdm>=4.67.1",
+    "typing-extensions>=4.15.0",
+    "ultralytics>=8.4.6",
+    "wheel==0.45.1",
+]

@@ -1,0 +1,10 @@
+facenet_pytorch
+numpy
+pandas
+Pillow
+setuptools
+torch
+torchvision
+tqdm
+typing_extensions
+ultralytics
