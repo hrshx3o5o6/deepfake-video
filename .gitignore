@@ -1,2 +1,7 @@
 *.env
 *.pth
+*.toml
+*.md
+*.lock
+__pycache__/
+venv

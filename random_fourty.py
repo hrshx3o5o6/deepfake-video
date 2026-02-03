@@ -3,7 +3,7 @@ import os
 
 def process_labels():
     input_path = '/Volumes/Harshas ssd/development/ieee-ml-hack-data/archive/test_labels.csv'
-    output_path = 'balanced_sampled_labels.csv'
+    output_path = 'percentage_40.csv'
 
     # Check if file exists
     if not os.path.exists(input_path):
@@ -31,16 +31,22 @@ def process_labels():
         print(f"Count of label 0: {len(zeros)}")
 
         # Check if we have enough samples
-        if len(ones) == 0 or len(zeros) == 0:
-            print("Error: No samples for one of the labels.")
+        total_samples = len(df)
+        if total_samples == 0:
+            print("Error: No samples in the dataset.")
             return
 
-        # Sample 20% from each group
-        n_ones = int(0.2 * len(ones))
-        n_zeros = int(0.2 * len(zeros))
+        # Sample 20% of total from each group
+        n_ones = min(int(0.2 * total_samples), len(ones))
+        n_zeros = min(int(0.2 * total_samples), len(zeros))
+        
+        if n_ones == 0 and len(ones) > 0:
+            n_ones = 1  # at least 1 if available
+        if n_zeros == 0 and len(zeros) > 0:
+            n_zeros = 1
         
         if n_ones == 0 or n_zeros == 0:
-            print("Error: Not enough samples for 20% sampling (need at least 5 of each).")
+            print("Error: Not enough samples for 20% of total sampling.")
             return
 
         sampled_ones = ones.sample(n=n_ones)
@@ -51,7 +57,7 @@ def process_labels():
 
         # Save to a new CSV file
         result.to_csv(output_path, index=False)
-        print(f"Success! Compiled {len(result)} random samples ({n_ones} from label 1, {n_zeros} from label 0) into '{output_path}'")
+        print(f"Success! Compiled {len(result)} random samples ({n_ones} from label 1, {n_zeros} from label 0, total {int(0.4 * total_samples)} expected) into '{output_path}'")
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
