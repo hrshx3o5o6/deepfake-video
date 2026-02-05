@@ -8,7 +8,7 @@ import numpy as np
 
 # Configuration
 INPUT_FILE = "/Volumes/Harshas ssd/development/ieee-ml-hack-data/archive/test_public.csv"
-OUTPUT_FILE = "test_predictions.csv"
+OUTPUT_FILE = "test_predictions_1.csv"
 RANDOM_STATE = 42  # For reproducibility
 
 def main():

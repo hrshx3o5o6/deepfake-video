@@ -11,6 +11,7 @@ dependencies = [
     "pandas>=3.0.0",
     "pillow>=12.1.0",
     "python-dotenv>=1.2.1",
+    "scikit-learn>=1.8.0",
     "setuptools>=80.10.1",
     "supabase>=2.27.3",
     "torch>=2.10.0",
